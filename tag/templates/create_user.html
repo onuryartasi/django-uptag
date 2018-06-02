@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+      <div class="row">
+          <div class="col">
+          <h1>Create Project</h1>
+          </div>
+          </div>
+          <div class="row">
+        <div class="col-lg-12">
+            <form class="form-horizontal"  method="POST" enctype='application/json'>
+                <div >
+                  <label for="project_name" class="col-sm-2 control-label">Username</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+                  </div>
+                </div>
+                <div >
+                    <label for="password" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+                    </div>
+                  </div>
+                  <div >
+                      <label for="ssh_key" class="col-sm-2 control-label">SSH KEY</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" id="ssh_key" name="ssh_key" placeholder="SSH KEY" required></textarea>
+                      </div>
+                    </div>
+
+
+                <div class="form-group">
+                    <label for="project_name" class="col-sm-2 control-label"></label>
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Create</button>
+                  </div>
+                </div>
+              </form>
+
+
+
+        </div>
+      </div>
+
+      <script>
+
+          var add_repo = document.getElementById('add_repo');
+            
+            var i=0
+            add_repo.addEventListener('click', function() {
+              var repo='<div id="repo_form_'+i+'"><div class="form-group"><label for="repo" class="col-sm-2 control-label">Repositories <button type="button" onClick="test(this.id)" id="del_repo_'+i+'"  class="btn  btn-sm btn-danger">Delete</button> </label> <div class="col-sm-10"> <input type="text" class="form-control" name="Repositories['+i+']repo" placeholder="Repositories"></div></div>'
+            repo+='<div class="form-group col-sm-10"><div class="row"><div class="col-sm-5"><input type="text" class="form-control" name="Repositories['+i+']release" placeholder="Release"></div><div class="col-sm-5"><input type="text" class="form-control"  name="Repositories['+i+']dev" placeholder="Development"></div></div></div>'
+              $("#create_form").append(repo);
+              var dell_repo = document.getElementById('del_repo');
+              i=i+1;
+                  }, false);
+                  
+                function test(id){
+                  var res=id.substring(9,);
+                  var element = document.getElementById("repo_form_"+res);
+                  element.parentNode.removeChild(element);
+                }
+
+
+          </script>
+{% endblock %}

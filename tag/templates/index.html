@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+      <div class="row">
+          <div class="col">
+          <h2>Projects</h2>
+          </div>
+          <div class="col text-right">
+              <a href="">Create Project</a>
+              </div>
+          </div>
+
+          <div class="row">
+        <div class="col">
+
+            <table class="table ">
+
+                  {% for project in projects%}
+                  <tr>
+                    <td><a href="#">{{ project }}</a></td>
+                    <td align="right"><button type="button" class="btn btn-outline-success">Update</button>
+                      <button type="button" class="btn btn-outline-warning">Setting</button></td>
+                  </tr>
+                  {% endfor %}
+
+              </table>
+
+        </div>
+      </div>
+
+
+{% endblock %}
