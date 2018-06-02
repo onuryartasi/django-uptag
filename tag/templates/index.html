@@ -7,7 +7,9 @@
           <h2>Projects</h2>
           </div>
           <div class="col text-right">
-              <a href="">Create Project</a>
+              {% if user.is_authenticated %}
+              <a href="{% url 'create_project' %}">Create Project</a>
+              {% endif %}
               </div>
           </div>
 
